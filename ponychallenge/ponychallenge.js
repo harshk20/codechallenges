@@ -1,5 +1,6 @@
 // Lets get the current game id
 var MAZE_ID = window.localStorage.getItem('MAZE_ID')
+getCurrentMaze()
 // Directions
 var SOUTH = 1
 var EAST = 2
@@ -7,6 +8,29 @@ var NORTH = 4
 var WEST = 8
 // AutoPlay
 var AUTO_PLAY = false;
+var KEYBOARD = false;
+
+if (KEYBOARD) {
+
+    document.onkeydown = function(e) {
+
+        e = e || window.event;
+
+        if (e.key == "ArrowUp") {
+            makeMove(NORTH)
+        }
+        else if (e.key == "ArrowDown") {
+            makeMove(SOUTH)
+        }
+        else if (e.key == "ArrowLeft") {
+            makeMove(WEST)
+        }
+        else if (e.key == "ArrowRight") {
+            makeMove(EAST)
+        }
+
+    }
+}
 
 // Button listeners
 document.getElementById("start").addEventListener('click', function(){
@@ -29,13 +53,18 @@ document.getElementById("auto").addEventListener('click', function(){
 })
 
 function startGame() {
+    document.getElementById("auto").innerHTML = "▶"
     createMaze()
 }
 
 function autoPlay () {
     AUTO_PLAY = !AUTO_PLAY
-    if(AUTO_PLAY)
+    if(AUTO_PLAY) {
         getCurrentMaze()
+        document.getElementById("auto").innerHTML = "❚❚"
+    } else {
+        document.getElementById("auto").innerHTML = "▶"
+    }
 }
 
 // Create a maze, Make POST API call to backend

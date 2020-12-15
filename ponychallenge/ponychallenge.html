@@ -1,50 +1,58 @@
 <html>
     <header>
         <link rel="stylesheet" href="ponychallenge.css">
+        <title> Pony Challenge </title> 
     </header>
     <body>
         <div class="container">
-        <div id="input">
-            <div id="player">
-                PlayerName:
-                <select id="pn" name="ponies">
-                    <option value="Twilight Sparkle">Twilight Sparkle</option>
-                    <option value="Applejack">Applejack</option>
-                    <option value="Fluttershy">Fluttershy</option>
-                    <option value="Rarity">Rarity</option>
-                    <option value="Pinkie Pie">Pinkie Pie</option>
-                    <option value="Rainbow Dash">Rainbow Dash</option>
-                    <option value="Spike" selected>Spike</option>
-                </select>
+            <div id="intro" class="introduction">
+                <h3 style="color: purple;"> Instructions </h3>
+                1. Choose pony, maze dimensions, dificulty level and create game.<br>
+                2. Use play/pause button for auto play. (double click for single move)<br>
+                3. Use Up, Down, Left, Right buttons for manual play.
             </div>
-            <div id="mazeWidth">
-                Maze width : 
-                <input type="number" id ="mw" min="15" max="25" value="15">
+            <div id="input" class ="creation">
+                <div id="player">
+                    <b>Pony:</b>
+                    <select id="pn" name="ponies">
+                        <option value="Twilight Sparkle">Twilight Sparkle</option>
+                        <option value="Applejack">Applejack</option>
+                        <option value="Fluttershy">Fluttershy</option>
+                        <option value="Rarity">Rarity</option>
+                        <option value="Pinkie Pie">Pinkie Pie</option>
+                        <option value="Rainbow Dash">Rainbow Dash</option>
+                        <option value="Spike" selected>Spike</option>
+                    </select>
+                </div>
+                <br>
+                <div id="Dimensions">
+                    <b>Width * Height :</b>
+                    <input type="number" id ="mw" min="15" max="25" value="15"> *
+                    <input type="number" id="mh" min="15" max="25" value="15">
+                </div>
+                <br>
+                <div id="difficulty">
+                    <b>Level:</b> 
+                    <input type="number" id="d" min="0" max="10" value="0">
+                </div>
+                <br>
+                <br>
+                <button id="start">Start Game</button>
             </div>
-            <div id="mazeHeight">
-                Maze height : 
-                <input type="number" id="mh" min="15" max="25" value="15">
+            <div id="output" class="maze">
+                <pre id="mazeprint"></pre>
             </div>
-            <div id="difficulty">
-                Difficulty: 
-                <input type="number" id="d" min="0" max="10" value="0">
-            </div>
+            <div id="playinput" class="controls">
+                <div class="controlbuttons">
+                <button id="up" class="upbtn"><b>UP</b></button>
+                <button id="left" class="leftbtn"><b>LEFT</b></button>
+                <button id="right" class="rightbtn"><b>RIGHT</b></button>
+                <button id="down" class="downbtn"><b>DOWN</b></button>
+                <button id="auto" class= "centerbtn">▶</button>
+                </div>
 
-            <button id="start">Start</button>
+            </div>
         </div>
-        <div id="output" class="maze">
-            <pre id="mazeprint"></pre>
-        </div>
-        <div id="playinput" class="controls">
-            <button id="left">left</button>
-            <button id="right">right</button>
-            <button id="up">up</button>
-            <button id="down">down</button>
-            <button id="current">current</button>
-            <button id="auto">autoPlay</button>
-
-        </div>
-    </div>
         <script src="node_modules/axios/dist/axios.min.js"></script>
         <script src="ponychallenge.js"></script>
     </body>
