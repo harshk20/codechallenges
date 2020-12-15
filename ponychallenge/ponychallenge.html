@@ -1,0 +1,51 @@
+<html>
+    <header>
+        <link rel="stylesheet" href="ponychallenge.css">
+    </header>
+    <body>
+        <div class="container">
+        <div id="input">
+            <div id="player">
+                PlayerName:
+                <select id="pn" name="ponies">
+                    <option value="Twilight Sparkle">Twilight Sparkle</option>
+                    <option value="Applejack">Applejack</option>
+                    <option value="Fluttershy">Fluttershy</option>
+                    <option value="Rarity">Rarity</option>
+                    <option value="Pinkie Pie">Pinkie Pie</option>
+                    <option value="Rainbow Dash">Rainbow Dash</option>
+                    <option value="Spike" selected>Spike</option>
+                </select>
+            </div>
+            <div id="mazeWidth">
+                Maze width : 
+                <input type="number" id ="mw" min="15" max="25" value="15">
+            </div>
+            <div id="mazeHeight">
+                Maze height : 
+                <input type="number" id="mh" min="15" max="25" value="15">
+            </div>
+            <div id="difficulty">
+                Difficulty: 
+                <input type="number" id="d" min="0" max="10" value="0">
+            </div>
+
+            <button id="start">Start</button>
+        </div>
+        <div id="output" class="maze">
+            <pre id="mazeprint"></pre>
+        </div>
+        <div id="playinput" class="controls">
+            <button id="left">left</button>
+            <button id="right">right</button>
+            <button id="up">up</button>
+            <button id="down">down</button>
+            <button id="current">current</button>
+            <button id="auto">autoPlay</button>
+
+        </div>
+    </div>
+        <script src="node_modules/axios/dist/axios.min.js"></script>
+        <script src="ponychallenge.js"></script>
+    </body>
+</html>
